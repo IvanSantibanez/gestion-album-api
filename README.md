@@ -70,11 +70,9 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 
 ```json
 {
-  "nombre": "Álbum Mundial 2022",
-  "imagen": "https://ejemplo.com/album2022.jpg",
-  "fechaLanzamiento": "2022-11-01",
-  "tipoLaminas": "Deportivas",
-  "activo": true
+  "nombre": "Álbum Mundial 2026",
+  "totalLaminas": 100,
+  "fechaLanzamiento": "2024-12-18T10:00:00.000+00:00"
 }
 ```
 
@@ -83,16 +81,22 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 ```json
 [
   {
-    "nombre": "Messi",
-    "imagen": "https://ejemplo.com/messi.jpg",
     "numero": 10,
-    "albumId": 1
+    "nombre": "Lionel Messi",
+    "tipoLamina": "Especial",
+    "album": { "id": 1 }
   },
   {
-    "nombre": "Mbappé",
-    "imagen": "https://ejemplo.com/mbappe.jpg",
+    "numero": 10,
+    "nombre": "Lionel Messi",
+    "tipoLamina": "Especial",
+    "album": { "id": 1 }
+  },
+  {
     "numero": 7,
-    "albumId": 1
+    "nombre": "Cristiano Ronaldo",
+    "tipoLamina": "Normal",
+    "album": { "id": 1 }
   }
 ]
 ```
@@ -110,5 +114,3 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 9. **GET** `/api/laminas/reporte/{albumId}` (Ver el reporte final)
 
 ---
-
-
