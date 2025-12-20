@@ -110,7 +110,7 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 5. **PUT** `/api/albumes/{id}` (Actualizar un álbum)
 6. **DELETE** `/api/albumes/{id}` (Eliminar un álbum)
 7. **GET** `/api/laminas/faltantes/{albumId}` (Ver láminas faltantes)
-8. **GET** `/api/laminas/repetidas/{albumId}` (Ver láminas repetidas)
+8. **GET** `/api/laminas/repetidas/{albumId}` (Ver láminas repetidas)m
 9. **GET** `/api/laminas/reporte/{albumId}` (Ver el reporte final)
 
 ---

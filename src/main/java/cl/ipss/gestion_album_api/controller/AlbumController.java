@@ -35,6 +35,7 @@ public class AlbumController {
     @PostMapping
     public ResponseEntity<Object> crear(@Valid @RequestBody Album album) {
         album.setActivo(true);
+        album.setFechaCreacion(new java.util.Date());
         AlbumResponse response = new AlbumResponse();
         response.setStatus(200);
         response.setMessage("Álbum creado exitosamente");
@@ -51,7 +52,10 @@ public class AlbumController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(
+      value = "/{id}",
+      consumes = {"application/json", "application/json;charset=UTF-8"}
+    )
     public ResponseEntity<Object> actualizar(
             @PathVariable @Min(value = 1, message = "El ID debe ser mayor a 0") Long id,
             @Valid @RequestBody Album album) {

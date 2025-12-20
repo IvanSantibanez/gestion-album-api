@@ -2,6 +2,12 @@ package cl.ipss.gestion_album_api.models;
 
 import java.util.Date;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,17 +26,23 @@ public class Lamina {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  @NotBlank(message = "El nombre de la lámina no puede estar vacío")
   private String nombre;
-  private int numero;
+  @NotNull(message = "El número de la lámina no puede ser nulo")
+  private Integer numero;
+  @NotBlank(message = "El tipo de lámina no puede estar vacío")
   private String tipoLamina;
+  @NotBlank(message = "La URL de la imagen no puede estar vacía")
   private String imagenUrl;
   private boolean activa;
   private Date fechaCreacion;
   private Date fechaActualizacion;
   private Date fechaEliminacion;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne
   @JoinColumn(name = "album_id")
+  @JsonIgnore
+  @NotNull(message = "El álbum no puede ser nulo")
   private Album album;
 
   @OneToOne(fetch = FetchType.LAZY, mappedBy = "lamina", cascade = { CascadeType.ALL })

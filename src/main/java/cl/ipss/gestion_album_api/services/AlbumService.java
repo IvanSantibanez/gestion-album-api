@@ -31,18 +31,23 @@ public class AlbumService {
   }
 
   public Album actualizar(Long id, Album albumActualizado) {
+    System.out.println("ID: " + id);
+    System.out.println("Album recibido: " + albumActualizado);
+    try {
+        Album albumExistente = albumRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Album no encontrado con id: " + id);
+        });
 
-    Album albumExistente = albumRepository.findById(id).orElseThrow(() -> {
-      throw new EntityNotFoundException("Album no encontrado con id: " + id);
-    });
+        albumExistente.setNombre(albumActualizado.getNombre());
+        albumExistente.setFechaLanzamiento(albumActualizado.getFechaLanzamiento());
+        albumExistente.setTotalLaminas(albumActualizado.getTotalLaminas());
+        albumExistente.setFechaActualizacion(new Date());
 
-    albumExistente.setNombre(albumActualizado.getNombre());
-    albumExistente.setFechaLanzamiento(albumActualizado.getFechaLanzamiento());
-    albumExistente.setTotalLaminas(albumActualizado.getTotalLaminas());
-    albumExistente.setFechaActualizacion(new Date());
-    albumRepository.save(albumExistente);
-
-    return albumExistente;
+        return albumRepository.save(albumExistente);
+    } catch (Exception e) {
+        e.printStackTrace(); // Esto mostrará el error real en la consola
+        throw e;
+    }
   }
 
   public void eliminar(Long id) {
