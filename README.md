@@ -113,4 +113,4 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 8. **GET** `/api/laminas/repetidas/{albumId}` (Ver láminas repetidas)m
 9. **GET** `/api/laminas/reporte/{albumId}` (Ver el reporte final)
 
----
+----
