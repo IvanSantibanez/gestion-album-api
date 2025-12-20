@@ -41,8 +41,8 @@ public class Lamina {
 
   @ManyToOne
   @JoinColumn(name = "album_id")
-  @JsonIgnore
   @NotNull(message = "El álbum no puede ser nulo")
+  @JsonBackReference
   private Album album;
 
   @OneToOne(fetch = FetchType.LAZY, mappedBy = "lamina", cascade = { CascadeType.ALL })
