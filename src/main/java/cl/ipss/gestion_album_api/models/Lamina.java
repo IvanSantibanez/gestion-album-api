@@ -32,7 +32,6 @@ public class Lamina {
   private Integer numero;
   @NotBlank(message = "El tipo de lámina no puede estar vacío")
   private String tipoLamina;
-  @NotBlank(message = "La URL de la imagen no puede estar vacía")
   private String imagenUrl;
   private boolean activa;
   private Date fechaCreacion;
