@@ -45,7 +45,7 @@ public class AlbumService {
 
         return albumRepository.save(albumExistente);
     } catch (Exception e) {
-        e.printStackTrace(); // Esto mostrará el error real en la consola
+        e.printStackTrace(); 
         throw e;
     }
   }
