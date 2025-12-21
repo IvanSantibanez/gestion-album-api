@@ -76,6 +76,14 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 }
 ```
 
+```json
+{
+  "nombre": "Álbum Ciencia y Tecnología",
+  "totalLaminas": 80,
+  "fechaLanzamiento": "2023-03-10T09:00:00.000+00:00"
+}
+```
+
 ## Ejemplo de body para carga masiva de láminas
 
 ```json
@@ -110,7 +118,7 @@ INSERT INTO lamina (nombre, imagen, numero, album_id) VALUES
 5. **PUT** `/api/albumes/{id}` (Actualizar un álbum)
 6. **DELETE** `/api/albumes/{id}` (Eliminar un álbum)
 7. **GET** `/api/laminas/faltantes/{albumId}` (Ver láminas faltantes)
-8. **GET** `/api/laminas/repetidas/{albumId}` (Ver láminas repetidas)m
+8. **GET** `/api/laminas/repetidas/{albumId}` (Ver láminas repetidas)
 9. **GET** `/api/laminas/reporte/{albumId}` (Ver el reporte final)
 
-----
+---
