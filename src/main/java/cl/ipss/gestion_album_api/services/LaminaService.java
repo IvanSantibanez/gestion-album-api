@@ -33,6 +33,12 @@ public class LaminaService {
     List<Lamina> laminasProcesadas = new ArrayList<>();
 
     for (Lamina lamina : laminas) {
+      // Validar que el álbum exista antes de guardar la lámina
+      if (lamina.getAlbum() == null || lamina.getAlbum().getId() == null ||
+          !albumRepository.findById(lamina.getAlbum().getId()).isPresent()) {
+        throw new EntityNotFoundException("Álbum no encontrado para la lámina con número: " + lamina.getNumero());
+      }
+
       Lamina laminaExistente = laminaRepository.findByNumero(lamina.getNumero());
 
       if (laminaExistente != null) {
